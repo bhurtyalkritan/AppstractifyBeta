@@ -1,6 +1,8 @@
 import streamlit as st
-import plotly_express as px
 import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from datetime import datetime
 import kaleido
 
 st.title("Appstractify")
@@ -24,18 +26,48 @@ except:
     with st.expander("data"):
         st.write("Please upload the CSV file")
 
-
+##selecting type of charts
 library_select = st.sidebar.selectbox(
-    label="Library",
-    options=['Matplotlib','Plotly_express','Seaborn']
+    label="Chart Type",
+    options=['Basic','Financial','Scientific',"Machine Learning", "Maps", "3D","Bioinformatics"]
 )
-chart_select = st.sidebar.selectbox(
-    label="Select Chart",
-    options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot','Pie Chart']
-)
+if library_select == "Basic":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=["Scatter Plots","Line Charts", "Bar Charts", "Pie Charts", "Bubble Charts", "Dot Plots", "Gantt Charts",
+                 "Filled Area Plots", "Horizontal Bar Charts", "Sunburts Charts", "Tables", " Sankey Diagram", "Treemap Charts",
+                 "Categorical Axes", "Icicle Charts","Dumbell Plots", "Patterns,Hatching,Texture"]
+    )
+elif library_select == "Financial":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=["Candlestick Charts", "Waterfall Charts", "Funnel Chart","OHLC Charts","Time Series", "Indicators", "Gauge Charts", "Bullet Charts" ])
 
 
-
+elif library_select == "3D":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot',
+                 'Pie Chart', 'Heat Map', 'Bubble Chart',
+                 "Dot Plot", "Area Chart", "Error Bar"])
+elif library_select == "Bioinformatics":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot',
+             'Pie Chart','Heat Map', 'Bubble Chart',
+             "Dot Plot","Area Chart", "Error Bar"])
+elif library_select == "Maps":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot',
+             'Pie Chart','Heat Map', 'Bubble Chart',
+             "Dot Plot","Area Chart", "Error Bar"])
+elif library_select == "Machine Learning":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot',
+             'Pie Chart','Heat Map', 'Bubble Chart',
+             "Dot Plot","Area Chart", "Error Bar"])
 
 numeric_columns=list(df.select_dtypes(['float','int']).columns)
 color_columns = list(df.columns)
@@ -44,7 +76,7 @@ color_columns.append(None)
 numeric_columns.append(None)
 
 
-if chart_select == "Scatterplots":
+if chart_select == "Scatter Plots":
     st.sidebar.subheader("Scatterplot Settings")
     try:
         title_value = st.sidebar.text_input("Graph Title")
@@ -64,8 +96,8 @@ if chart_select == "Scatterplots":
 
     except Exception as e:
         print(e)
-elif chart_select == "Lineplots":
-    st.sidebar.subheader("Lineplot Settings")
+elif chart_select == "Line Charts":
+    st.sidebar.subheader("Line Chart Settings")
     try:
         title_value = st.sidebar.text_input("Graph Title")
         x_values = st.sidebar.selectbox("X axis", options=numeric_columns)
@@ -76,7 +108,8 @@ elif chart_select == "Lineplots":
     except Exception as e:
         print(e)
 
-elif chart_select == "Boxplot":
+elif chart_select == "Box Plots":
+    st.sidebar.subheader("Box Plot Settings")
     try:
         title_value = st.sidebar.text_input("Graph Title")
         x_values = st.sidebar.selectbox("X axis", options=numeric_columns)
@@ -103,3 +136,4 @@ elif chart_select == "Pie Chart":
         st.plotly_chart(plot)
     except Exception as e:
         print(e)
+
