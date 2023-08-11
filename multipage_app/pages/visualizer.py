@@ -68,7 +68,10 @@ elif library_select == "Machine Learning":
         options=['Scatterplots', 'Lineplots', 'Histogram', 'Boxplot',
              'Pie Chart','Heat Map', 'Bubble Chart',
              "Dot Plot","Area Chart", "Error Bar"])
-
+elif library_select == "Scientific":
+    chart_select = st.sidebar.selectbox(
+        label="Select Chart",
+        options=[""])
 numeric_columns=list(df.select_dtypes(['float','int']).columns)
 color_columns = list(df.columns)
 
@@ -127,7 +130,7 @@ elif chart_select == "Histogram":
         st.plotly_chart(plot)
     except Exception as e:
         print(e)
-elif chart_select == "Pie Chart":
+elif chart_select == "Pie Charts":
     try:
         title_value = st.sidebar.text_input("Graph Title")
         values = st.sidebar.selectbox("Values", options=numeric_columns)
@@ -136,4 +139,47 @@ elif chart_select == "Pie Chart":
         st.plotly_chart(plot)
     except Exception as e:
         print(e)
+elif chart_select == "Dot Plots":
+    try:
+        title_value = st.sidebar.text_input("Graph Title")
+        values = st.sidebar.selectbox("Values", options=numeric_columns)
+        names = st.sidebar.selectbox("Names", options=color_columns)
+        plot = px.pie(data_frame=df, names=names, values=values, title=title_value)
+        st.plotly_chart(plot)
+    except Exception as e:
+        print(e)
+elif chart_select == "Gantt Charts":
+    try:
+        title_value = st.sidebar.text_input("Graph Title")
+        values = st.sidebar.selectbox("Values", options=numeric_columns)
+        names = st.sidebar.selectbox("Names", options=color_columns)
+        plot = px.pie(data_frame=df, names=names, values=values, title=title_value)
+        st.plotly_chart(plot)
+    except Exception as e:
+        print(e)
+elif chart_select == "Tables":
+    try:
+        title_value = st.sidebar.text_input("Graph Title")
+        values = st.sidebar.selectbox("Values", options=numeric_columns)
+        names = st.sidebar.selectbox("Names", options=color_columns)
+        plot = px.pie(data_frame=df, names=names, values=values, title=title_value)
+        st.plotly_chart(plot)
+    except Exception as e:
+        print(e)
+elif chart_select == "Bubble Charts":
+    try:
+        title_value = st.sidebar.text_input("Graph Title")
+        Yaxis = st.sidebar.selectbox("Y Axis",options=numeric_columns)
+        Xaxis = st.sidebar.selectbox("X Axis", options=numeric_columns)
+        Color = st.sidebar.selectbox("Color", options=color_columns)
+        Size = st.sidebar.selectbox("Size", options=numeric_columns)
+        hovername = st.sidebar.selectbox("Hover Name", options=color_columns)
+        sizemax = st.sidebar.number_input("Max Size")
+        fig = px.scatter(df, x=Xaxis, y=Yaxis,
+                         size=Size, color=Color,
+                         hover_name= hovername, log_x=True, size_max=sizemax, title=title_value)
+        st.plotly_chart(fig)
 
+
+    except Exception as e:
+        print(e)
