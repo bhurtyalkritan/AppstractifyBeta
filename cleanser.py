@@ -2,88 +2,119 @@ import pandas
 import numpy
 
 
-
-
-def main_filter(data, user : str,row):
+def main_filter(data, user: str, row):
     print(type(main_filter))
     df = data
-    u = user
+    user_input = user
     r = row
-    if u.find("lt") != -1:
-        u = [sub.split() for sub in u]
-        if u[0] == "l" and u[1] == "t":
+    if user_input.find(">=") != -1:
+        print(user_input)
+        user_input = user_input.split()
+        print(user_input)
+        if user_input[0][0] == ">" and user_input[0][1] == "=":
+            # ['>=50']
             x = ""
-            for i in range(1, len(u)):
-                x = x + u[i]
+            for i in user_input[0]:
+                if i.isnumeric():
+                    x = x + str(i)
+                else:
+                    pass
             x = int(x)
-            df = delete_greater(df,row, x)
-            return delete_equal(df,row, x)
+            print(x)
+            df = delete_greater(df, x, row)
+            return delete_equal(df, x, row)
         else:
             pass
-    #>70
-    elif(u.find("<=") != -1):
-        u = [sub.split for sub in u]
-        if(u[0] == "<" and u[1] == "="):
-            pass
-        else:
-            pass
-    elif u.find(">") != -1:
-        u = [sub.split() for sub in u]
-        if u[0] == ">":
-            #greater than ___
+    # >70
+    elif (user_input.find("=<") != -1) or (user_input.find("<=") != -1):
+        if user_input.find("=<") != -1:
+            user_input = user_input.split()
+        if user_input[0][0] == ">" and user_input[0][1] == "=":
+            # 400=>100
             x = ""
-            for i in range(1,len(u)):
-                x = x + u[i]
+            for i in user_input[0]:
+                if i.isnumeric():
+                    x = x + str(i)
+                else:
+                    pass
+            x = int(x)
+            print(x)
+            df = delete_greater(df, x, row)
+            return delete_equal(df, x, row)
+        else:
+            pass
+    elif user_input.find(">") != -1:
+        user_input = [sub.split() for sub in user_input]
+        if user_input[0] == ">":
+            # greater than ___
+            x = ""
+            for i in range(1, len(user_input)):
+                x = x + user_input[i]
             x = int(x)
             print(x)
             delete_greater(row, x)
         else:
             pass
-    elif u.find("<") != -1:
-        u = [sub.split() for sub in u]
-        if u[0] == "<":
+    elif user_input.find("<") != -1:
+        user_input = [sub.split() for sub in user_input]
+        if user_input[0] == "<":
             # greater than ___
             x = ""
-            for i in range(1, len(u)):
-                x = x + u[i]
+            for i in range(1, len(user_input)):
+                x = x + user_input[i]
             x = int(x)
-            delete_less(row,  x)
+            delete_less(row, x)
         else:
             pass
 
-    if u.find("-c") != -1:
-        u.replace("-c","")
-        u = int(u)
-        return delete_column(df,u)
 
-    if u.find("-r") != -1:
-        u.replace("-r","")
-        u = int(u)
-        print(u)
-        return delete_row(df,u)
+#  if user_input.find("-c") != -1:
+#     user_input.replace("-c","")
+#     user_input = int(user_input)
+#     return delete_column(df,u)
+
+# if user_input.find("-r") != -1:
+#    user_input.replace("-r","")
+#    user_input = int(user_input)
+#   print(u)
+#  return delete_row(df,user_input)
 
 def testing(df):
     return df
-def to_float(df,col):
+
+
+def to_float(df, col):
     df[col] = df[col].astype(float)
     return df
-def to_int(df,col):
+
+
+def to_int(df, col):
     df[col] = df[col].astype(int)
     return df
-def to_string(df,col):
+
+
+def to_string(df, col):
     df[col] = df[col].astype(str)
     return df
-def delete_column(df,index):
+
+
+def delete_column(df, index):
     l = list(df.columns)
     df = df.drop([l[index]])
     return df
+
+
 ## 8 < 40
 def add_column(df, list_value):
     return
-def delete_row(df,index):
+
+
+def delete_row(df, index):
     df = df.drop(index)
     return df
 
+
+'''
 def swap_row(df,row1,row2):
     df.iloc[row1], df.iloc[row2] = df.iloc[row2].copy(), df.iloc[row1].copy()
     return df
@@ -95,9 +126,14 @@ def swap_column(df, col1,col2):
         return df
     else:
         return -1
+'''
+
+
 def add_row():
     return
-def delete_greater(data,val, col):
+
+
+def delete_greater(data, val, col):
     df = data
     u = val
     c = col
@@ -107,19 +143,33 @@ def delete_greater(data,val, col):
     except Exception as e:
         return e
 
-def delete_less(df,val, row):
+
+def delete_less(df, val, row):
     try:
         df = df[df[row] >= val]
         return df
     except Exception as e:
         return e
-def delete_equal(df,val,row):
-    df = df[df[row] != val]
-    return df
+
+
+def delete_equal(data, val, col):
+    df = data
+    u = val
+    c = col
+    try:
+        df = df[df[col] != val]
+        return df
+    except Exception as e:
+        return e
+    '''
 def delete_wrong_format(df,index):
     df.dropna()
-
+'''
+    '''
 def delete_duplicate(df):
     return df.drop_duplicates()
 ## operators: d<,d>,=,$,-r,+r,-c,+c,+-s,-e,-d,-f
+'''
 
+
+print("\n")

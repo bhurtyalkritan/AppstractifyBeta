@@ -13,6 +13,7 @@ uploaded_file = st.sidebar.file_uploader(label="Upload CSV file (200MB Limit)", 
 global numeric_columns
 global df
 
+
 if uploaded_file is not None:
     try:
         df = pd.read_csv(uploaded_file)
@@ -21,7 +22,8 @@ if uploaded_file is not None:
 
 try:
     with st.expander("Dataset"):
-        st.write(df)
+       st.session_state.key = df
+       st.write(st.session_state.key)
 except:
     with st.expander("data"):
         st.write("Please upload the CSV file")
@@ -34,9 +36,14 @@ type_select = st.sidebar.selectbox(
     options=["Cleansing","Visualization"]
 )
 
-def reset_dataframe():
-    df = df_replace
+def reset_dataframe(data):
+    if(data != None):
+        return data
+    else:
+        return df
 
+def update_dataframe():
+    pass
 def get_column(data):
     df = data
     name_holder = []
@@ -45,23 +52,23 @@ def get_column(data):
     return name_holder
 
 if type_select == "Cleansing":
-
     with st.sidebar.form("my_form"):
         st.write("Inside the form")
         user_input = st.text_input("filter type")
         user_col = st.selectbox(label="Columns", options=get_column(df))
-        # Every form must have a submit button.
         submitted = st.form_submit_button("Submit")
         if submitted:
             st.write("Filter: ", user_input, "| Column: ", user_col)
+            user_input = [str(i) for i in user_input]
+            print(user_input)
+            lol = "".join(user_input)
+            lol = str(lol)
+            print(lol)
+            df = cleanser.main_filter(df,lol, user_col)
+            print(df)
+            st.write(st.session_state.key)
 
     reset_button = st.sidebar.button("Reset Dataframe")
-    user_input = [str(i) for i in user_input]
-    u = ""
-    u.join(user_input)
-    print(u)
-    df = cleanser.delete_greater(df,u,5)
-    print(df)
 elif type_select == "Visualization":
     library_select = st.sidebar.selectbox(
         label="Chart Type",
