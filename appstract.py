@@ -83,7 +83,11 @@ if type_select == "Cleansing":
         "Filtration Functions (for columns):",
         "Greater Than: #># or >#",
         "Less Than: #<# or >#",
-        "Not equal: !=# or !=str"
+        "Not equal: !=# or !=str",
+        "Delete Duplicate: duplicate",
+        "Delete Blank: Blank",
+        "Delete Null: Null",
+        "Delete wrong format: Format"
     ])
     reset_button = st.sidebar.button("Reset Dataframe")
 
