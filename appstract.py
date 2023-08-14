@@ -69,6 +69,13 @@ if type_select == "Cleansing":
             st.write(st.session_state.key)
 
     reset_button = st.sidebar.button("Reset Dataframe")
+
+    try:
+        with st.expander("Functions"):
+            st.write("Greater than or equal to: var1>=var2")
+    except Exception as e:
+        with st.expander("Error"):
+            st.write(e)
 elif type_select == "Visualization":
     library_select = st.sidebar.selectbox(
         label="Chart Type",
