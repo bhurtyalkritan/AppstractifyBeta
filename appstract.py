@@ -40,20 +40,27 @@ def reset_dataframe(data):
     else:
         return df
 
-def update_dataframe():
-    pass
+def update_dataframe(data):
+    return data
+
 def get_column(data):
     df = data
     name_holder = []
     for col in df.columns:
         name_holder.append(col)
+    name_holder.insert(0,None)
     return name_holder
-
+def get_row(data):
+    df = data
+    blank = list(df.index)
+    blank.insert(0,None)
+    return blank
 if type_select == "Cleansing":
     with st.sidebar.form("my_form"):
-        st.write("Inside the form")
+        st.write("Filtration")
         user_input = st.text_input("filter type")
         user_col = st.selectbox(label="Columns", options=get_column(df))
+        user_row = st.selectbox(label="Rows", options=get_row(df))
         submitted = st.form_submit_button("Submit")
         if submitted:
             st.write("Filter: ", user_input, "| Column: ", user_col)
@@ -63,17 +70,23 @@ if type_select == "Cleansing":
             lol = str(lol)
             print(lol)
             df = cleanser.main_filter(df,lol, user_col)
+            update_dataframe(df)
             print(df)
-            st.write(st.session_state.key)
-
+            st.write(df)
+    func_types = st.sidebar.selectbox("Function List", options=[
+        "Edit Functions (for both): ",
+        "Delete Column: -c",
+        "Delete Row: -r",
+        "Add Column: +c{name: [values]}",
+        "Add Row: +r[values]",
+        "Change type: int,str,float",
+        "Filtration Functions (for columns):",
+        "Greater Than: #># or >#",
+        "Less Than: #<# or >#",
+        "Not equal: !=# or !=str"
+    ])
     reset_button = st.sidebar.button("Reset Dataframe")
 
-    try:
-        with st.expander("Functions"):
-            st.write("Greater than or equal to: var1>=var2")
-    except Exception as e:
-        with st.expander("Error"):
-            st.write(e)
 elif type_select == "Visualization":
     library_select = st.sidebar.selectbox(
         label="Chart Type",

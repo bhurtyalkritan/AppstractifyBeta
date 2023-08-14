@@ -29,7 +29,24 @@ def main_filter(data, user: str, row):
     elif (user_input.find("=<") != -1) or (user_input.find("<=") != -1):
         if user_input.find("=<") != -1:
             user_input = user_input.split()
-        if user_input[0][0] == ">" and user_input[0][1] == "=":
+        if user_input[0][0] == "=" and user_input[0][1] == "<":
+            # 400=>100
+            x = ""
+            for i in user_input[0]:
+                if i.isnumeric():
+                    x = x + str(i)
+                else:
+                    pass
+            x = int(x)
+            print(x)
+            df = delete_less(df, x, row)
+            return delete_equal(df, x, row)
+        else:
+            pass
+    elif user_input.find(">") != -1:
+        if user_input.find(">") != -1:
+            user_input = user_input.split()
+        if user_input[0][0] == ">":
             # 400=>100
             x = ""
             for i in user_input[0]:
@@ -40,30 +57,24 @@ def main_filter(data, user: str, row):
             x = int(x)
             print(x)
             df = delete_greater(df, x, row)
-            return delete_equal(df, x, row)
-        else:
-            pass
-    elif user_input.find(">") != -1:
-        user_input = [sub.split() for sub in user_input]
-        if user_input[0] == ">":
-            # greater than ___
-            x = ""
-            for i in range(1, len(user_input)):
-                x = x + user_input[i]
-            x = int(x)
-            print(x)
-            delete_greater(row, x)
+            return df
         else:
             pass
     elif user_input.find("<") != -1:
-        user_input = [sub.split() for sub in user_input]
-        if user_input[0] == "<":
-            # greater than ___
+        if user_input.find("<") != -1:
+            user_input = user_input.split()
+        if user_input[0][0] == "<":
+            # 400=>100
             x = ""
-            for i in range(1, len(user_input)):
-                x = x + user_input[i]
+            for i in user_input[0]:
+                if i.isnumeric():
+                    x = x + str(i)
+                else:
+                    pass
             x = int(x)
-            delete_less(row, x)
+            print(x)
+            df = delete_less(df, x, row)
+            return df
         else:
             pass
 
