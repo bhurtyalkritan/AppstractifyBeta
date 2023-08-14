@@ -79,10 +79,8 @@ def main_filter(data, user: str, row):
             pass
 
 
-#  if user_input.find("-c") != -1:
-#     user_input.replace("-c","")
-#     user_input = int(user_input)
-#     return delete_column(df,u)
+    elif user_input.find("-c") != -1:
+        delete_column(df,row)
 
 # if user_input.find("-r") != -1:
 #    user_input.replace("-r","")

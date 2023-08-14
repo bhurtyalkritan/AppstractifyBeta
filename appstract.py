@@ -24,14 +24,14 @@ try:
        st.write(st.session_state.key)
 except:
     with st.expander("data"):
-        st.write("Please upload the CSV file")
+        st.write("Please upload the data file")
 
 df_replace = df
 
 ##selecting type of charts
 type_select = st.sidebar.selectbox(
     label="Function Type",
-    options=["Cleansing","Visualization"]
+    options=["Data Filtering","Data Visualization","Synthetic Data"]
 )
 
 def reset_dataframe(data):
@@ -55,7 +55,7 @@ def get_row(data):
     blank = list(df.index)
     blank.insert(0,None)
     return blank
-if type_select == "Cleansing":
+if type_select == "Data Filtering":
     with st.sidebar.form("my_form"):
         st.write("Filtration")
         user_input = st.text_input("filter type")
@@ -90,8 +90,33 @@ if type_select == "Cleansing":
         "Delete wrong format: Format"
     ])
     reset_button = st.sidebar.button("Reset Dataframe")
-
-elif type_select == "Visualization":
+elif type_select == "Synthetic Data":
+    model_choice = st.sidebar.selectbox(label="Choose AI model",options=["OpenAI [requires key]",
+                                                                         "Bard [free]",
+                                                                         "Llama [free]",
+                                                                         "Faker Library [Quickest]",
+                                                                         "Data Templates [Pre-made data]"])
+    if model_choice == "Bard [free]" or model_choice == "Llama [free]":
+        ai_input = st.sidebar.text_area("Prompt",height=300)
+    elif model_choice == "OpenAI [requires key]":
+        key = st.sidebar.text_input("API KEY")
+        ai_input = st.sidebar.text_area("Prompt", height=300)
+    elif model_choice == "Data Templates [Pre-made data]":
+        template_choice = st.sidebar.selectbox(label="Data Templates", options=["Earthquake Data",
+                                                                                "Flight Logs",
+                                                                                "People Data",
+                                                                                "Research data",
+                                                                                "Machine Learning Data",
+                                                                                "Economic Data",
+                                                                                "Healthcare Data",
+                                                                                "Education data",
+                                                                                "Population Data",
+                                                                                "Disease Data"])
+        if template_choice == "Disease Data":
+            pass
+    elif model_choice == "Faker Library [Quickest]":
+        pass
+elif type_select == "Data Visualization":
     library_select = st.sidebar.selectbox(
         label="Chart Type",
         options=['Basic', 'Financial', 'Scientific', "Machine Learning", "Maps", "3D", "Bioinformatics"])
