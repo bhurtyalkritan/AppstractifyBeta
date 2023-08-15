@@ -1,0 +1,121 @@
+record_id,disease_name,reported_date,country,region,cases,deaths,recovered
+1,COVID-19,2023-08-01,USA,North America,1000,10,950
+2,Influenza,2023-08-02,Canada,North America,500,2,480
+3,Malaria,2023-08-02,Nigeria,Africa,3000,25,2900
+4,Dengue Fever,2023-08-03,Brazil,South America,800,5,790
+5,Tuberculosis,2023-08-03,India,Asia,1500,20,1470
+6,COVID-19,2023-08-04,UK,Europe,1200,8,1150
+7,Cholera,2023-08-05,Haiti,North America,200,15,180
+8,Influenza,2023-08-06,Germany,Europe,300,1,295
+9,Zika Virus,2023-08-06,Mexico,North America,150,0,150
+10,Malaria,2023-08-07,Kenya,Africa,2500,30,2450
+11,Dengue Fever,2023-08-07,Thailand,Asia,600,2,590
+12,COVID-19,2023-08-08,Italy,Europe,800,7,790
+13,Cholera,2023-08-09,Bangladesh,Asia,400,25,375
+14,Tuberculosis,2023-08-09,Pakistan,Asia,1800,15,1770
+15,Influenza,2023-08-10,France,Europe,400,3,395
+16,Zika Virus,2023-08-11,Brazil,South America,120,0,120
+17,Malaria,2023-08-11,Ethiopia,Africa,2800,40,2760
+18,Dengue Fever,2023-08-12,Indonesia,Asia,700,4,695
+19,COVID-19,2023-08-13,Spain,Europe,1100,10,1085
+20,Cholera,2023-08-14,Yemen,Asia,300,20,280
+21,Influenza,2023-08-14,Australia,Oceania,200,0,200
+22,COVID-19,2023-08-15,USA,North America,1300,12,1270
+23,Malaria,2023-08-16,Nigeria,Africa,3200,28,3150
+24,Dengue Fever,2023-08-16,Brazil,South America,900,6,890
+25,Tuberculosis,2023-08-17,India,Asia,1800,22,1775
+26,Cholera,2023-08-17,Haiti,North America,250,18,230
+27,COVID-19,2023-08-18,UK,Europe,1500,9,1460
+28,Influenza,2023-08-19,Germany,Europe,350,0,350
+29,Zika Virus,2023-08-19,Mexico,North America,180,1,179
+30,Malaria,2023-08-20,Kenya,Africa,2800,35,2765
+31,Dengue Fever,2023-08-21,Thailand,Asia,650,3,647
+32,COVID-19,2023-08-21,Italy,Europe,950,8,940
+33,Cholera,2023-08-22,Bangladesh,Asia,380,30,350
+34,Tuberculosis,2023-08-23,Pakistan,Asia,2100,18,2080
+35,Influenza,2023-08-23,France,Europe,320,2,318
+36,Zika Virus,2023-08-24,Brazil,South America,100,0,100
+37,Malaria,2023-08-24,Ethiopia,Africa,2500,50,2450
+38,Dengue Fever,2023-08-25,Indonesia,Asia,750,5,745
+39,COVID-19,2023-08-26,Spain,Europe,1250,11,1235
+40,Cholera,2023-08-26,Yemen,Asia,400,35,365
+41,Influenza,2023-08-27,Australia,Oceania,180,1,179
+42,COVID-19,2023-08-28,USA,North America,1400,14,1380
+43,Malaria,2023-08-29,Nigeria,Africa,3500,45,3450
+44,Dengue Fever,2023-08-29,Brazil,South America,1000,7,993
+45,Tuberculosis,2023-08-30,India,Asia,2000,25,1975
+46,Cholera,2023-08-30,Haiti,North America,280,25,255
+47,COVID-19,2023-08-31,UK,Europe,1600,10,1590
+48,Influenza,2023-09-01,Canada,North America,400,2,395
+49,Zika Virus,2023-09-01,Mexico,North America,200,1,199
+50,Malaria,2023-09-02,Kenya,Africa,3000,40,2960
+51,Dengue Fever,2023-09-02,Thailand,Asia,750,6,744
+52,COVID-19,2023-09-03,Italy,Europe,1100,9,1090
+53,Cholera,2023-09-04,Bangladesh,Asia,450,40,410
+54,Tuberculosis,2023-09-04,Pakistan,Asia,2500,20,2480
+55,Influenza,2023-09-05,France,Europe,380,3,377
+56,Zika Virus,2023-09-06,Brazil,South America,150,0,150
+57,Malaria,2023-09-06,Ethiopia,Africa,2800,60,2740
+58,Dengue Fever,2023-09-07,Indonesia,Asia,800,8,792
+59,COVID-19,2023-09-08,Spain,Europe,1350,15,1335
+60,Cholera,2023-09-08,Yemen,Asia,450,50,400
+61,Influenza,2023-09-09,Australia,Oceania,220,1,219
+62,COVID-19,2023-09-10,USA,North America,1500,16,1480
+63,Malaria,2023-09-11,Nigeria,Africa,3800,55,3745
+64,Dengue Fever,2023-09-11,Brazil,South America,1100,9,1091
+65,Tuberculosis,2023-09-12,India,Asia,2200,27,2170
+66,Cholera,2023-09-12,Haiti,North America,320,30,290
+67,COVID-19,2023-09-13,UK,Europe,1800,11,1788
+68,Influenza,2023-09-14,Germany,Europe,420,2,418
+69,Zika Virus,2023-09-14,Mexico,North America,250,1,249
+70,Malaria,2023-09-15,Kenya,Africa,3200,50,3150
+71,Dengue Fever,2023-09-15,Thailand,Asia,800,7,793
+72,COVID-19,2023-09-16,Italy,Europe,1300,10,1290
+73,Cholera,2023-09-17,Bangladesh,Asia,500,45,455
+74,Tuberculosis,2023-09-17,Pakistan,Asia,2700,25,2675
+75,Influenza,2023-09-18,France,Europe,450,4,446
+76,Zika Virus,2023-09-19,Brazil,South America,130,1,129
+77,Malaria,2023-09-19,Ethiopia,Africa,3000,70,2930
+78,Dengue Fever,2023-09-20,Indonesia,Asia,900,10,890
+79,COVID-19,2023-09-21,Spain,Europe,1450,12,1435
+80,Cholera,2023-09-21,Yemen,Asia,500,60,440
+81,Influenza,2023-09-22,Australia,Oceania,250,2,248
+82,COVID-19,2023-09-23,USA,North America,1600,18,1582
+83,Malaria,2023-09-24,Nigeria,Africa,4000,60,3940
+84,Dengue Fever,2023-09-24,Brazil,South America,1200,10,1190
+85,Tuberculosis,2023-09-25,India,Asia,2400,30,2370
+86,Cholera,2023-09-25,Haiti,North America,380,35,345
+87,COVID-19,2023-09-26,UK,Europe,1900,14,1885
+88,Influenza,2023-09-27,Canada,North America,480,3,477
+89,Zika Virus,2023-09-27,Mexico,North America,280,2,278
+90,Malaria,2023-09-28,Kenya,Africa,3500,65,3435
+91,Dengue Fever,2023-09-28,Thailand,Asia,850,8,842
+92,COVID-19,2023-09-29,Italy,Europe,1400,12,1388
+93,Cholera,2023-09-30,Bangladesh,Asia,550,50,500
+94,Tuberculosis,2023-09-30,Pakistan,Asia,2900,28,2872
+95,Influenza,2023-10-01,France,Europe,500,5,495
+96,Zika Virus,2023-10-02,Brazil,South America,160,2,158
+97,Malaria,2023-10-02,Ethiopia,Africa,3200,80,3120
+98,Dengue Fever,2023-10-03,Indonesia,Asia,1000,12,988
+99,COVID-19,2023-10-04,Spain,Europe,1650,16,1634
+100,Cholera,2023-10-04,Yemen,Asia,550,70,480
+101,Influenza,2023-10-05,Australia,Oceania,280,3,277
+102,COVID-19,2023-10-06,USA,North America,1700,20,1680
+103,Malaria,2023-10-07,Nigeria,Africa,4200,75,4125
+104,Dengue Fever,2023-10-07,Brazil,South America,1300,11,1289
+105,Tuberculosis,2023-10-08,India,Asia,2600,35,2565
+106,Cholera,2023-10-08,Haiti,North America,450,40,410
+107,COVID-19,2023-10-09,UK,Europe,2000,18,1982
+108,Influenza,2023-10-10,Canada,North America,520,4,516
+109,Zika Virus,2023-10-10,Mexico,North America,300,3,297
+110,Malaria,2023-10-11,Kenya,Africa,3800,85,3715
+111,Dengue Fever,2023-10-11,Thailand,Asia,900,9,891
+112,COVID-19,2023-10-12,Italy,Europe,1500,14,1486
+113,Cholera,2023-10-13,Bangladesh,Asia,600,60,540
+114,Tuberculosis,2023-10-13,Pakistan,Asia,3100,30,3070
+115,Influenza,2023-10-14,France,Europe,550,6,544
+116,Zika Virus,2023-10-15,Brazil,South America,190,2,188
+117,Malaria,2023-10-15,Ethiopia,Africa,3500,90,3410
+118,Dengue Fever,2023-10-16,Indonesia,Asia,1100,13,1087
+119,COVID-19,2023-10-17,Spain,Europe,1800,20,1780
+120,Cholera,2023-10-17,Yemen,Asia,600,80,520

@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import cleanser
-
+import synthetic
 st.title("Appstractify")
 st.sidebar.subheader("Settings")
 
@@ -11,12 +11,13 @@ uploaded_file = st.sidebar.file_uploader(label="Upload CSV file (200MB Limit)", 
 global numeric_columns
 global df
 
-
+base_dataset = pd.read_csv("templates/Disease.csv")
 if uploaded_file is not None:
     try:
         df = pd.read_csv(uploaded_file)
     except:
         df = pd.read_excel(uploaded_file)
+
 
 try:
     with st.expander("Dataset"):
@@ -113,9 +114,13 @@ elif type_select == "Synthetic Data":
                                                                                 "Population Data",
                                                                                 "Disease Data"])
         if template_choice == "Disease Data":
-            pass
+            st.sidebar.write(synthetic.Disease_df)
+            if st.sidebar.button("export"):
+                synthetic.export_dataframe(synthetic.Disease_df)
+
     elif model_choice == "Faker Library [Quickest]":
         pass
+
 elif type_select == "Data Visualization":
     library_select = st.sidebar.selectbox(
         label="Chart Type",
