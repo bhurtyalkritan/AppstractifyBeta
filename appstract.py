@@ -95,7 +95,7 @@ elif type_select == "Synthetic Data":
     model_choice = st.sidebar.selectbox(label="Choose AI model",options=["OpenAI [requires key]",
                                                                          "Bard [free]",
                                                                          "Llama [free]",
-                                                                         "Faker Library [Quickest]",
+                                                                         "Faker Library [free]",
                                                                          "Data Templates [Pre-made data]"])
     if model_choice == "Bard [free]" or model_choice == "Llama [free]":
         ai_input = st.sidebar.text_area("Prompt",height=300)
@@ -117,7 +117,14 @@ elif type_select == "Synthetic Data":
             st.sidebar.write(synthetic.Disease_df)
             if st.sidebar.button("export"):
                 synthetic.export_dataframe(synthetic.Disease_df)
-
+        elif template_choice == "People Data":
+            st.sidebar.write(synthetic.Employee_df)
+            if st.sidebar.button("export"):
+                synthetic.export_dataframe(synthetic.Employee_df)
+        elif template_choice == "Earthquake Data":
+            st.sidebar.write(synthetic.Earthquake_df)
+            if st.sidebar.button("export"):
+                synthetic.export_dataframe(synthetic.Earthquake_df)
     elif model_choice == "Faker Library [Quickest]":
         pass
 

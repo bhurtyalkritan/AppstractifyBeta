@@ -1,6 +1,8 @@
 from langchain import OpenAI
 from langchain import prompts
 import pandas as pd
+import faker
+
 
 # declaring template values
 Earthquake_df = pd.read_csv("templates/Earthquake_Data.csv")
@@ -21,8 +23,8 @@ def export_dataframe(data):
     print(df_csv)
 
 
-def prompt_gpt():
-    pass
+def prompt_gpt(user_input):
+    llm = OpenAI.llm
 
 def prompt_bard():
     pass
@@ -30,4 +32,5 @@ def prompt_bard():
 def prompt_llama():
     pass
 
-
+def faker_lib():
+    pass
