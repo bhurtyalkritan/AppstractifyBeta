@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import cleanser
-import synthetic
+#import synthetic
 st.title("Appstractify")
 st.sidebar.subheader("Settings")
 
