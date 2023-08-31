@@ -1,5 +1,5 @@
-from langchain import OpenAI
-from langchain import prompts
+#from langchain import OpenAI
+#from langchain import prompts
 import pandas as pd
 import faker
 
@@ -24,7 +24,7 @@ def export_dataframe(data):
 
 
 def prompt_gpt(user_input):
-    llm = OpenAI.llm
+    #llm = OpenAI.llm
 
 def prompt_bard():
     pass
