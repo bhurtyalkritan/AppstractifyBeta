@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import cleanser
-#import synthetic
+import synthetic
+from streamlit_extras.dataframe_explorer import dataframe_explorer
 st.title("Appstractify")
 st.sidebar.subheader("Settings")
 
@@ -11,21 +12,22 @@ uploaded_file = st.sidebar.file_uploader(label="Upload CSV file (200MB Limit)", 
 global numeric_columns
 global df
 
-base_dataset = pd.read_csv("templates/Disease.csv")
+df = pd.read_csv("templates/Disease.csv")
 if uploaded_file is not None:
     try:
         df = pd.read_csv(uploaded_file)
+        df = dataframe_explorer(df)
     except:
         df = pd.read_excel(uploaded_file)
+        df = dataframe_explorer(df)
 
-
+global dataframe_code
 try:
     with st.expander("Dataset"):
-       st.session_state.key = df
-       st.write(st.session_state.key)
+       dataframe_code = st.dataframe(df,use_container_width=True)
 except:
     with st.expander("data"):
-        st.write("Please upload the data file")
+        dataframe_code = st.write("Please upload the data file")
 
 df_replace = df
 
@@ -73,7 +75,11 @@ if type_select == "Data Filtering":
             df = cleanser.main_filter(df,lol, user_col)
             update_dataframe(df)
             print(df)
-            st.write(df)
+            dataframe_code.write(df)
+            if st.sidebar.button("Download"):
+                synthetic.export_dataframe(df)
+            if st.sidebar.button("Reset"):
+                synthetic.reset_dataframe()
     func_types = st.sidebar.selectbox("Function List", options=[
         "Edit Functions (for both): ",
         "Delete Column: -c",
@@ -90,6 +96,7 @@ if type_select == "Data Filtering":
         "Delete Null: Null",
         "Delete wrong format: Format"
     ])
+    st.stop()
     reset_button = st.sidebar.button("Reset Dataframe")
 elif type_select == "Synthetic Data":
     model_choice = st.sidebar.selectbox(label="Choose AI model",options=["OpenAI [requires key]",
@@ -100,8 +107,17 @@ elif type_select == "Synthetic Data":
     if model_choice == "Bard [free]" or model_choice == "Llama [free]":
         ai_input = st.sidebar.text_area("Prompt",height=300)
     elif model_choice == "OpenAI [requires key]":
-        key = st.sidebar.text_input("API KEY")
-        ai_input = st.sidebar.text_area("Prompt", height=300)
+        with st.sidebar.form("Prompt"):
+            key = st.text_input("API KEY")
+            ai_input = st.text_area("Prompt", height=300)
+            submitted = st.form_submit_button("Submit")
+            if submitted:
+                temp = synthetic.prompt_gpt(ai_input,key)
+                with st.sidebar.expander("Output"):
+                    st.write(temp)
+                    download = st.button("Download")
+                    if download:
+                        pass
     elif model_choice == "Data Templates [Pre-made data]":
         template_choice = st.sidebar.selectbox(label="Data Templates", options=["Earthquake Data",
                                                                                 "Flight Logs",
@@ -352,6 +368,12 @@ elif type_select == "Data Visualization":
             st.plotly_chart(fig)
         except Exception as e:
             print(e)
+
+
+
+
+
+
 
 
 
