@@ -1,5 +1,5 @@
-from langchain.llms import OpenAI
-from langchain import prompts
+#from langchain.llms import OpenAI
+#from langchain import prompts
 import pandas as pd
 from faker import Faker
 
