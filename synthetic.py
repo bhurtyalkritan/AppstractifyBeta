@@ -35,7 +35,7 @@ def prompt_gpt(user_input,key):
         print("Rate exceeded or bug found")
 
 def prompt_bard(query):
-    API_KEY = "AIzaSyBAKeIaKuCO6sEQvFQyJ8Az18PfDEuMwl4"
+    API_KEY = ""
     df = google_bard.generate_text(query, api_key=API_KEY)
     return df
 def prompt_llama():
