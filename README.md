@@ -74,7 +74,7 @@ If you'd like to contribute to Appstractify, please follow these steps:
 - **Export Option:** Users can export the generated charts in different file formats (png, pdf, jpeg).
 
 ## How to Run
-1. Install the required libraries: `streamlit`, `pandas`, `plotly.express`, `streamlit_extras`, `cleanser`, `synthetic`.
+1. Install the required libraries: `streamlit`, `pandas`, `plotly.express`, `streamlit_extras`, `cleanser`, `synthetic`, as well as other libraries in the requirements.txt file.
 2. Run the Streamlit app: `streamlit run your_script.py`.
 3. Use the app in your browser and explore the functionalities.
 
