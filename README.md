@@ -60,5 +60,78 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 2. Plotly Express - For interactive plotting in Python.
 3. Feel free to reach out for any questions or issues!
 
+# Cleanser Module
+
+The `cleanser` module provides functions for data filtering and cleaning in the Appstractify application.
+
+## Functions
+
+### `main_filter(data, user, row)`
+
+Main function for data filtering based on user input.
+
+- **Parameters:**
+  - `data`: DataFrame to be filtered.
+  - `user`: String containing user input for filtering.
+  - `row`: Column/row index for filtering.
+
+- **Returns:**
+  - Filtered DataFrame based on user input.
+
+### `delete_greater(data, val, col)`
+
+Deletes rows where the specified column values are greater than the given value.
+
+### `delete_less(data, val, col)`
+
+Deletes rows where the specified column values are less than the given value.
+
+### `delete_equal(data, val, col)`
+
+Deletes rows where the specified column values are equal to the given value.
+
+### `greater_lesser_equal(data, num1, num2, col)`
+
+Filters rows where the specified column values are between or equal to the given range.
+
+### `greater_lesser(data, num1, num2, col)`
+
+Filters rows where the specified column values are strictly between the given range.
+
+### `delete_duplicate(df)`
+
+Deletes duplicate rows from the DataFrame.
+
+### `drop_null(df)`
+
+Drops rows with null values from the DataFrame.
+
+### `blank(df, row)`
+
+Replaces blank values in a specified column with NaN and drops null rows.
+
+### `delete_column(df, index)`
+
+Deletes the specified column from the DataFrame.
+
+## Operators
+
+- `d<`: Deletes rows where the specified column values are less than the given value.
+- `d>`: Deletes rows where the specified column values are greater than the given value.
+- `=`: Deletes rows where the specified column values are equal to the given value.
+- `$`: Filters rows where the specified column values are between or equal to the given range.
+- `-r`: Deletes the specified row from the DataFrame.
+- `+r`: Adds a new row to the DataFrame.
+- `-c`: Deletes the specified column from the DataFrame.
+- `+c`: Adds a new column to the DataFrame.
+
+## Usage
+
+```python
+import cleanser
+
+# Example Usage
+data = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
+cleanser.delete_greater(data, 2, 'A')
 
 
