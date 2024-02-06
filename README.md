@@ -231,4 +231,47 @@ import cleanser
 data = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
 cleanser.delete_greater(data, 2, 'A')
 
+# LangChain Functions
+
+## 1. OpenAI Language Model (LLM)
+### `prompt_gpt(user_input, key)`
+Generates text using the OpenAI language model. Requires user input and an OpenAI API key.
+
+## 2. Google Bard Language Model
+### `prompt_bard(query)`
+Generates text using the Google Bard language model. Requires a query and an API key.
+
+## 3. Language Models
+### `prompt_llama()`
+Placeholder function for a language model called Llama.
+
+# Data Export Functions
+
+## 1. DataFrame Export
+### `export_dataframe(data, format)`
+Exports a Pandas DataFrame to a specified file format (e.g., CSV). Requires the DataFrame and the desired format.
+
+## 2. Excel Converter
+### `excel_converter(df)`
+Converts a CSV file to an Excel file. Requires the CSV file.
+
+## 3. CSV Converter
+### `csv_converter()`
+Placeholder function for a CSV converter.
+
+# Data Templates
+Global Data Templates:
+- `Earthquake_df`: Earthquake data template.
+- `Employee_df`: Employee data template.
+- `Disease_df`: Disease data template.
+- `Econ_df`: Economic data template.
+- `Healthcare_df`: Healthcare data template.
+- `Education_df`: Education data template.
+- `Flight_df`: Flight data template.
+
+# Faker Library
+### `faker_lib()`
+Placeholder function for the Faker library.
+
+
 
