@@ -271,7 +271,7 @@ Global Data Templates:
 
 # Faker Library
 ### `faker_lib()`
-Placeholder function for the Faker library.
+Placeholder function for the Faker library, will be implemented to be used to generate synthetic data without need of LLMs and api keys.
 
 
 
