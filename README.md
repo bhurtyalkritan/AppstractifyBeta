@@ -1,66 +1,69 @@
-Libraries Used:
-streamlit: A Python library for creating web applications with minimal code.
-pandas: A powerful data manipulation library for working with structured data.
-plotly.express: A library for creating interactive data visualizations.
-cleanser: It seems to be a custom module or library for data cleansing and manipulation.
-synthetic: It appears to be a custom module for generating synthetic data and working with data templates.
-streamlit_extras.dataframe_explorer: A custom module for exploring and displaying dataframes in Streamlit apps.
-numpy: A library for numerical operations in Python.
-faker: A library for generating fake data for testing and development purposes.
-langchain: It appears to be a custom module or library for interacting with AI models like OpenAI.
-APIs Used:
-OpenAI API: This API is used for interacting with the OpenAI GPT model for generating text based on prompts.
-Google Bard API: This API is mentioned for generating text but doesn't seem to be used in the code.
-Functions:
-main_filter(data, user, row)
+# Appstractify
 
-This function is used for data filtering based on user input criteria. It can filter data based on conditions like greater than, less than, equal to, and not equal to. The data parameter is the input DataFrame, user is the filtering criteria, and row is the column to filter on.
+Welcome to Appstractify, a Streamlit-based application for data analysis, visualization, and synthetic data generation.
 
-update_dataframe(data)
+## Getting Started
 
-This function updates the global DataFrame with new data.
+### Prerequisites
 
-get_column(data)
+Make sure you have the following installed on your machine:
 
-Returns a list of column names from the DataFrame data.
+- Python 3.6 or later
+- Streamlit
+- Pandas
+- Plotly Express
+- Other dependencies specified in `requirements.txt`
 
-get_row(data)
+### Installation
 
-Returns a list of row indices from the DataFrame data.
+1. Clone the repository:
 
-delete_column(df, index)
+   ```bash
+   git clone https://github.com/your-username/appstractify.git
 
-Deletes a column specified by the index from the DataFrame df.
 
-greater_lesser(data, num1, num2, col)
+### Usage
+1. Run the Streamlit app:
+   streamlit run app.py
+2. Upload your CSV or Excel file using the file uploader in the sidebar.
+3. Explore the dataset, filter data, visualize, or generate synthetic data using the provided functionalities.
 
-Filters data where the values in the specified column col are greater than num2 and less than num1.
+### Features
+Data Filtering: Filter your dataset based on various criteria.
+Data Visualization: Create interactive charts and plots using different chart types.
+Synthetic Data Generation: Generate synthetic data using various models and templates.
 
-delete_duplicate(df)
+### Folder Structure
 
-Removes duplicate rows from the DataFrame df.
+templates/: Contains pre-made data templates.
+cleanser.py: Module for data cleansing functions.
+synthetic.py: Module for synthetic data generation functions.
+app.py: Main Streamlit application file.
 
-drop_null(df)
+### Contributing
 
-Drops rows with null values in the DataFrame df.
+If you'd like to contribute to Appstractify, please follow these steps:
 
-blank(df, row)
+1. Fork the repository.
+2. Create a new branch: git checkout -b feature-name.
+3. Make your changes and commit: git commit -m 'Add new feature'.
+4. Push to your fork: git push origin feature-name.
+5. Create a pull request.
 
-Replaces blank values in the specified column row with NaN and then drops rows with NaN values.
+### License
 
-export_dataframe(data, format)
+This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-Exports the DataFrame data to the specified file format (e.g., CSV, Excel, PNG, PDF, JPEG).
+### Acknowledgments
 
-prompt_gpt(user_input, key)
+1. Streamlit - For the easy creation of web apps with Python.
+2. Plotly Express - For interactive plotting in Python.
+3. Feel free to reach out for any questions or issues!
 
-Interacts with the OpenAI GPT model using the provided user_input prompt and API key (key) to generate text.
+Make sure to replace placeholders such as `your-username` and update sections like `Acknowledgments` with accurate information about the libraries or tools you used in your project.
 
-faker_lib()
 
-This function appears to be a placeholder and doesn't contain any specific functionality in the code.
 
-Other Functions:
 
-There are other functions like to_float, to_int, to_string, delete_less, delete_equal, greater_lesser_equal, and more, which are defined but not explicitly used in the provided code. These functions might have been intended for future use or as placeholders.
+
 
