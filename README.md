@@ -60,10 +60,5 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 2. Plotly Express - For interactive plotting in Python.
 3. Feel free to reach out for any questions or issues!
 
-Make sure to replace placeholders such as `your-username` and update sections like `Acknowledgments` with accurate information about the libraries or tools you used in your project.
-
-
-
-
 
 
